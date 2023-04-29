@@ -3,6 +3,7 @@
 	import iconMoon from "../lib/images/icon-moon.svg"
 
 	import Form from "./Form.svelte"
+	import Task from "./Task.svelte"
 	import Controls from "./Controls.svelte"
 </script>
 
@@ -28,7 +29,7 @@
 				<legend class="sr-only">List of tasks</legend>
 
 				<ul class="tasks-list">
-					<li class="tasks-list__item" />
+					<Task description="Finish the todo-app" />
 				</ul>
 			</fieldset>
 
