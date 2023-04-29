@@ -3,6 +3,7 @@
 	import iconMoon from "../lib/images/icon-moon.svg"
 
 	import Form from "./Form.svelte"
+	import Controls from "./Controls.svelte"
 </script>
 
 <svelte:head>
@@ -30,6 +31,8 @@
 					<li class="tasks-list__item" />
 				</ul>
 			</fieldset>
+
+			<Controls />
 
 			<p class="instruction">Drag and drop to reorder list</p>
 		</main>
