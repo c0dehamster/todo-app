@@ -167,10 +167,32 @@ ul {
 	aspect-ratio: 1;
 	border-radius: 50%;
 
-	background: transparent;
-	border: 1px solid var(--color-main-checkbox);
+	background: var(--color-background-card);
+	border: 1px solid var(--color-main-shaded);
 
 	cursor: pointer;
+}
+
+.checkbox-circle::after,
+.checkbox-circle::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+
+	border-radius: 50%;
+}
+
+.checkbox-circle::before {
+	transform: scale(1.1);
+
+	background: var(--background-gradient-checkbox);
+	opacity: 0;
+
+	transition: opacity 100ms ease-in;
+}
+
+.checkbox-circle::after {
+	background-color: var(--color-background-card);
 }
 
 .sr-only {
@@ -189,19 +211,18 @@ ul {
 
 /* Active states */
 
+.checkbox-circle:hover::before,
+.checkbox-circle:focus::before,
 .checkbox-circle--completed::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	border-radius: 50%;
+	opacity: 1;
+}
+
+.checkbox-circle--completed::after {
+	background-color: transparent;
 
 	background-image: url("../lib/images/icon-check.svg");
 	background-position: center;
 	background-repeat: no-repeat;
-}
-
-.checkbox-circle--completed {
-	background: var(--background-gradient-checkbox);
 }
 
 @media screen and (min-width: 40rem) {
