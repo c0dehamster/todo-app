@@ -76,15 +76,22 @@
 		width: 100%;
 		max-width: 37rem;
 		padding-inline: 1.5rem;
-		padding-block: 4.5rem 3rem;
+		padding-block-start: 2.5rem;
 
-		gap: 2.5rem;
+		gap: 2rem;
 	}
 
 	.header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+
+	.heading {
+		font-size: var(--font-size-heading-responsive);
+		text-transform: uppercase;
+		color: var(--color-main-contrast);
+		letter-spacing: clamp(0.5rem, 2.13vw, 1.43rem);
 	}
 
 	.tasks-list-wrapper {
@@ -99,5 +106,22 @@
 	.instruction {
 		align-self: center;
 		text-align: center;
+
+		color: var(--color-main-shaded);
+		font-size: var(--font-size-200);
+	}
+
+	@media screen and (min-width: 40rem) {
+		.app {
+			background-image: var(--background-desktop-dark);
+		}
+
+		.wrapper {
+			padding-block-start: 4.5rem;
+		}
+
+		.instruction {
+			font-size: var(--font-size-200);
+		}
 	}
 </style>

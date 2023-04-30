@@ -1,7 +1,9 @@
 <script lang="ts"></script>
 
 <div class="controls">
-	<p class="controls__items-left">5 items left</p>
+	<div class="controls__items-left">
+		<p>5 items left</p>
+	</div>
 
 	<fieldset class="filter-by">
 		<legend class="sr-only">Filter items</legend>
@@ -42,8 +44,11 @@
 	.filter-by,
 	.controls__clear-completed {
 		background-color: var(--color-background-card);
-		padding-block: 1rem;
 		width: 100%;
+		height: 3rem;
+
+		display: flex;
+		align-items: center;
 	}
 
 	.controls__items-left {
@@ -57,9 +62,7 @@
 		grid-area: filter-by;
 		justify-self: center;
 
-		display: flex;
 		justify-content: center;
-		align-items: center;
 		gap: 1.25rem;
 
 		border: none;
@@ -70,8 +73,7 @@
 	.controls__clear-completed {
 		padding-inline-end: 1.5rem;
 		grid-area: button-clear;
-		display: flex;
-		align-items: center;
+
 		justify-content: end;
 		border-bottom-right-radius: 0.25rem;
 	}
@@ -102,6 +104,12 @@
 
 		.filter-by {
 			border-radius: 0.25rem;
+		}
+	}
+
+	@media screen and (min-width: 40rem) {
+		.filter-by {
+			font-size: var(--font-size-300);
 		}
 	}
 </style>

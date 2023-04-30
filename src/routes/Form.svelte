@@ -39,4 +39,14 @@
 	.form__input::placeholder {
 		color: var(--color-main-shaded);
 	}
+
+	@media screen and (min-width: 40rem) {
+		.form {
+			padding-inline: 1.5rem;
+		}
+
+		.form__input {
+			font-size: var(--font-size-500);
+		}
+	}
 </style>

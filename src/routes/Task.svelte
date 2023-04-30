@@ -73,4 +73,14 @@
 		text-decoration: line-through;
 		color: var(--color-main-shaded);
 	}
+
+	@media screen and (min-width: 40rem) {
+		.task {
+			padding: 1.5rem;
+		}
+
+		.task__description {
+			font-size: var(--font-size-500);
+		}
+	}
 </style>
