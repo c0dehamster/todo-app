@@ -38,7 +38,8 @@
 				<legend class="sr-only">List of tasks</legend>
 
 				<ul class="tasks-list">
-					<Task description="Finish the todo-app" completed={true} />
+					<Task description="Finish the todo-app" id="1" />
+					<Task description="Finish the todo-app" id="2" />
 				</ul>
 			</fieldset>
 
@@ -86,6 +87,11 @@
 
 	.tasks-list-wrapper {
 		border: none;
+	}
+
+	.tasks-list {
+		border-radius: 0.25rem 0.25rem 0 0;
+		overflow: hidden;
 	}
 
 	.instruction {

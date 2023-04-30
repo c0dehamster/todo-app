@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let description: string
 	export let completed = false
+	export let id: string
 
 	$: taskDescriptionClass = `task__description ${
 		completed ? "task__description--completed" : ""
@@ -12,13 +13,19 @@
 </script>
 
 <li class="task">
-	<label for="" class={checkboxCircleClass}>
-		<span class="sr-only">Mark as completed</span>
+	<input
+		type="checkbox"
+		{id}
+		name={id}
+		class="hidden"
+		bind:checked={completed} />
+
+	<label for={id} class={taskDescriptionClass}>
+		<div class={checkboxCircleClass}>
+			<span class="sr-only">Mark as completed</span>
+		</div>
+		{description}
 	</label>
-
-	<input type="checkbox" class="hidden" />
-
-	<p class={taskDescriptionClass}>{description}</p>
 
 	<button class="button">
 		<svg
@@ -34,14 +41,18 @@
 </li>
 
 <style>
-	.task {
-		padding: 1rem;
-
+	.task,
+	.task__description {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+	}
+
+	.task {
+		padding: 1rem;
 
 		background-color: var(--color-background-card);
+		border-bottom: 1px solid var(--color-main-shaded);
 	}
 
 	.task__description {
