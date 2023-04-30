@@ -70,6 +70,10 @@
 		font-size: var(--font-size-200);
 	}
 
+	.filter-by__label {
+		transition: color 100ms ease-in;
+	}
+
 	.controls__clear-completed {
 		padding-inline-end: 1.5rem;
 		grid-area: button-clear;
@@ -79,6 +83,8 @@
 	}
 
 	.button {
+		transition: color 100ms ease-in;
+
 		color: var(--color-main-shaded);
 	}
 

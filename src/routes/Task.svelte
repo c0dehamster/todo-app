@@ -53,12 +53,15 @@
 
 		background-color: var(--color-background-card);
 		border-bottom: 1px solid var(--color-main-shaded);
+
+		--icon-color: var(--color-main-shaded);
 	}
 
 	.task__description {
 		flex: 1;
 
 		color: var(--color-main-contrast);
+		transition: color 100ms ease-in;
 
 		font-size: var(--font-size-100);
 	}
@@ -67,7 +70,17 @@
 		height: 1.125rem;
 	}
 
+	.button__icon path {
+		fill: var(--icon-color);
+		transition: fill 100ms ease-in;
+	}
+
 	/* Active states */
+
+	.task__description:hover,
+	.task__description:hover {
+		color: var(--color-main-contrast-hover);
+	}
 
 	.task__description--completed {
 		text-decoration: line-through;
@@ -77,6 +90,13 @@
 	@media screen and (min-width: 40rem) {
 		.task {
 			padding: 1.5rem;
+
+			--icon-color: transparent;
+		}
+
+		.task:hover,
+		.task:focus-within {
+			--icon-color: var(--color-main-shaded);
 		}
 
 		.task__description {
