@@ -12,6 +12,8 @@
 	.form {
 		padding: 1rem;
 
+		margin-block-end: 1.5rem;
+
 		display: flex;
 		align-items: center;
 		gap: 1rem;

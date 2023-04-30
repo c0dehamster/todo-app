@@ -54,6 +54,11 @@
 	.app {
 		height: 100vh;
 
+		display: flex;
+		flex-direction: column;
+		justify-content: baseline;
+		align-items: center;
+
 		background-color: var(--color-background-app);
 		background-image: var(--background-mobile-dark);
 		background-size: contain;
@@ -68,6 +73,7 @@
 	}
 
 	.wrapper {
+		width: 100%;
 		max-width: 37rem;
 		padding-inline: 1.5rem;
 		padding-block: 4.5rem 3rem;
@@ -79,10 +85,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-	}
-
-	.main {
-		gap: 1.5rem;
 	}
 
 	.tasks-list-wrapper {
