@@ -9,6 +9,13 @@
 	import Form from "./Form.svelte"
 	import Task from "./Task.svelte"
 	import Controls from "./Controls.svelte"
+
+	let lightTheme = false
+
+	const onThemeSwitch = () => (lightTheme = !lightTheme)
+
+	$: themeSwitchIcon = lightTheme ? iconMoon : iconSun
+	$: appClass = `app ${lightTheme ? "app--light" : ""}`
 </script>
 
 <svelte:head>
@@ -16,7 +23,7 @@
 </svelte:head>
 
 <div
-	class="app"
+	class={appClass}
 	style="--background-mobile-dark: url({backgroundMobileDark});
 --background-mobile-light: url({backgroundMobileLight});
 --background-desktop-dark: url({backgroundDesktopDark});
@@ -26,8 +33,8 @@
 			<h1 class="heading">Todo</h1>
 
 			<!-- Do I even need an aria label for a theme switch? -->
-			<button class="button" aria-label="light">
-				<img src={iconSun} alt="" class="button__icon" />
+			<button class="button" aria-label="light" on:click={onThemeSwitch}>
+				<img src={themeSwitchIcon} alt="" class="button__icon" />
 			</button>
 		</header>
 
@@ -65,6 +72,10 @@
 		background-repeat: no-repeat;
 	}
 
+	.app--light {
+		background-image: var(--background-mobile-light);
+	}
+
 	.wrapper,
 	.main,
 	.tasks-list-wrapper,
@@ -90,7 +101,7 @@
 	.heading {
 		font-size: var(--font-size-heading-responsive);
 		text-transform: uppercase;
-		color: var(--color-main-contrast);
+		color: var(--color-header);
 		letter-spacing: clamp(0.5rem, 2.13vw, 1.43rem);
 	}
 
@@ -114,6 +125,10 @@
 	@media screen and (min-width: 40rem) {
 		.app {
 			background-image: var(--background-desktop-dark);
+		}
+
+		.app--light {
+			background-image: var(--background-desktop-light);
 		}
 
 		.wrapper {
