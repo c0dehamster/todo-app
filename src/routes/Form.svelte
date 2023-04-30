@@ -10,8 +10,7 @@
 
 <style>
 	.form {
-		padding-inline: 1.5rem;
-		padding-block: 1rem;
+		padding: 1rem;
 
 		display: flex;
 		align-items: center;

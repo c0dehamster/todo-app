@@ -3,7 +3,7 @@
 <div class="controls">
 	<p class="controls__items-left">5 items left</p>
 
-	<fieldset class="filter-by">
+	<fieldset class="filter-by | card">
 		<legend class="sr-only">Filter items</legend>
 
 		<label for="" class="filter-by__label"> All </label>

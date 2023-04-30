@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
 /* Box sizing rules, remove default paddings and margins */
 *,
 *::before,
@@ -93,8 +95,33 @@ select {
 
 	--color-active: var(--color-primary-400);
 
-	--background-gradient-checkbox: linear-gradient hsl(192, 100%, 67%) to
-		hsl(280, 87%, 65%);
+	--background-gradient-checkbox: linear-gradient(
+		hsl(192, 100%, 67%),
+		hsl(280, 87%, 65%)
+	);
+
+	/* Typography */
+
+	--font-size-100: 0.75rem;
+	--font-size-200: 0.81rem;
+	--font-size-300: 0.875rem;
+	--font-size-400: 1rem;
+	--font-size-500: 1.125rem;
+	--font-size-800: 1.75rem;
+	--font-size-900: 2.5rem;
+
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
+
+	--font-size-heading-responsive: clamp(
+		var(--font-size-800),
+		8vw,
+		var(--font-size-900)
+	);
+}
+
+body {
+	font-family: "Josefin Sans", sans-serif;
 }
 
 .app--light {
@@ -108,4 +135,65 @@ select {
 	--color-main-contrast-hover: var(--color-neutral-600);
 
 	--color-active: var(--color-primary-400);
+}
+
+ul {
+	list-style: none;
+}
+
+/* Utilities */
+
+.card {
+	background-color: var(--color-background-card);
+}
+
+.button {
+	padding: 0px;
+
+	background: transparent;
+	border: none;
+}
+
+.checkbox-circle {
+	position: relative;
+
+	width: 1.25rem;
+	aspect-ratio: 1;
+	border-radius: 50%;
+
+	background: transparent;
+	border: 1px solid var(--color-main-checkbox);
+
+	cursor: pointer;
+}
+
+.sr-only {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.hidden {
+	display: none;
+}
+
+/* Active states */
+
+.checkbox-circle--completed::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+
+	background-image: url("../lib/images/icon-check.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.checkbox-circle--completed {
+	background: var(--background-gradient-checkbox);
 }
