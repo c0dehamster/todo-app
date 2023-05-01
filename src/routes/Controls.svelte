@@ -1,8 +1,16 @@
-<script lang="ts"></script>
+<script lang="ts">
+	import { TasksStore } from "./TaskList"
+
+	$: taskListLength = $TasksStore.items.length
+</script>
 
 <div class="controls">
 	<div class="controls__items-left">
-		<p>5 items left</p>
+		<p>
+			{`${taskListLength} ${
+				taskListLength === 1 ? "item" : "items"
+			} left`}
+		</p>
 	</div>
 
 	<fieldset class="filter-by">
