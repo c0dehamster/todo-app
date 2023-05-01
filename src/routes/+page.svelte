@@ -8,7 +8,6 @@
 
 	import Form from "./Form.svelte"
 	import TaskList from "./TaskList.svelte"
-	import Task from "./Task.svelte"
 	import Controls from "./Controls.svelte"
 
 	let lightTheme = false

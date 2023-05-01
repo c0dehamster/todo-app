@@ -1,7 +1,13 @@
 <script lang="ts">
+	import { createEventDispatcher } from "svelte"
+
+	export let id: string
 	export let description: string
 	export let completed = false
-	export let id: string
+
+	const dispatch = createEventDispatcher<{ delete: string }>()
+
+	const onDelete = () => dispatch("delete", id)
 
 	$: taskDescriptionClass = `task__description ${
 		completed ? "task__description--completed" : ""
@@ -27,7 +33,7 @@
 		{description}
 	</label>
 
-	<button class="button">
+	<button class="button" on:click={onDelete}>
 		<svg
 			class="button__icon"
 			xmlns="http://www.w3.org/2000/svg"

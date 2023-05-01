@@ -2,6 +2,8 @@
 	import { TasksStore } from "./TaskList"
 
 	import Task from "./Task.svelte"
+
+	const onDelete = (e: CustomEvent<string>) => TasksStore.removeItem(e.detail)
 </script>
 
 <fieldset class="tasks-list-wrapper">
@@ -10,11 +12,9 @@
 	<ul class="tasks-list">
 		{#if $TasksStore.items.length > 0}
 			{#each $TasksStore.items as task}
-				<Task {...task} />
+				<Task {...task} on:delete={onDelete} />
 			{/each}
 		{/if}
-		<Task description="Finish the todo-app" id="1" />
-		<Task description="Finish the todo-app" id="2" />
 	</ul>
 </fieldset>
 

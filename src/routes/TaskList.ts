@@ -8,7 +8,13 @@ interface Item {
     completed: boolean
 }
 
-let items: Item[] = []
+let items: Item[] = [
+	{
+		id: "testItem",
+		description: "Finish the todo-app",
+		completed: false
+	}
+]
 
 const createArrayStore = (items: Item[]) => {
 	const { set, update, subscribe }: Writable<{items: Item[]}> = writable({

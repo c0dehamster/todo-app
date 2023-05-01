@@ -1,11 +1,36 @@
-<script lang="ts"></script>
+<script lang="ts">
+	import { TasksStore } from "./TaskList"
 
-<from class="form">
-	<button class="checkbox-circle checkbox-circle--checked">
+	let newTaskDescription = ""
+	let buttonClass = "checkbox-circle"
+
+	const onSubmit = () => {
+		TasksStore.addItem(newTaskDescription)
+		newTaskDescription = ""
+	}
+
+	const onClick = () => {
+		buttonClass = "checkbox-circle checkbox-circle--completed"
+		onSubmit()
+
+		setTimeout(() => (buttonClass = "checkbox-circle"), 1000)
+	}
+
+	$: disabled = newTaskDescription === ""
+</script>
+
+<!-- The submit event is not registered therefore handling on:click -->
+<from class="form" on:submit|preventDefault={onSubmit}>
+	<button class={buttonClass} {disabled} on:click={onClick}>
 		<span class="sr-only"> Add todo </span>
 	</button>
 
-	<input type="text" class="form__input" placeholder="Create a new todo..." />
+	<input
+		type="text"
+		class="form__input"
+		name="taskDescription"
+		placeholder="Create a new todo..."
+		bind:value={newTaskDescription} />
 </from>
 
 <style>
