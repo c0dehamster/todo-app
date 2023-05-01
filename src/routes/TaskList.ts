@@ -1,3 +1,4 @@
+import { browser } from "$app/environment"
 import { writable, derived } from "svelte/store";
 import {v4 as uuidv4} from "uuid"
 import type { Writable } from "svelte/store";
@@ -8,13 +9,13 @@ interface Item {
     completed: boolean
 }
 
-let items: Item[] = [
-	{
-		id: "testItem",
-		description: "Finish the todo-app",
-		completed: false
-	}
-]
+let items: Item[] = []
+
+if (browser) {
+	let tasks = localStorage.getItem("tasks")
+
+	if (tasks && tasks !== "undefined") items = JSON.parse(tasks)
+}
 
 const createArrayStore = (items: Item[]) => {
 	const { set, update, subscribe }: Writable<{items: Item[]}> = writable({
@@ -99,3 +100,9 @@ export const TasksFiltered = derived([TasksStore, FilterBy], ([$TasksStore, $Fil
 			return $TasksStore.items.filter(item => !item.completed)
 	}
 })
+
+if (browser) {
+	TasksStore.subscribe(value =>
+		localStorage.setItem("tasks", JSON.stringify(value.items))
+	)
+}

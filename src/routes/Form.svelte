@@ -52,6 +52,8 @@
 		border: none;
 		outline: none;
 
+		flex: 1;
+
 		background-color: transparent;
 		color: var(--color-main-contrast);
 
