@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { TasksStore, FilterBy } from "./TaskList"
 
-	$: taskListLength = $TasksStore.items.length
+	$: activeTasksLength = $TasksStore.items.filter(
+		item => !item.completed
+	).length
 </script>
 
 <div class="controls">
 	<div class="controls__items-left">
 		<p>
-			{`${taskListLength} ${
-				taskListLength === 1 ? "item" : "items"
+			{`${activeTasksLength} ${
+				activeTasksLength === 1 ? "item" : "items"
 			} left`}
 		</p>
 	</div>
