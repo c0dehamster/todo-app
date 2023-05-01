@@ -7,6 +7,7 @@
 	import iconMoon from "../lib/images/icon-moon.svg"
 
 	import Form from "./Form.svelte"
+	import TaskList from "./TaskList.svelte"
 	import Task from "./Task.svelte"
 	import Controls from "./Controls.svelte"
 
@@ -40,16 +41,7 @@
 
 		<main class="main">
 			<Form />
-
-			<fieldset class="tasks-list-wrapper">
-				<legend class="sr-only">List of tasks</legend>
-
-				<ul class="tasks-list">
-					<Task description="Finish the todo-app" id="1" />
-					<Task description="Finish the todo-app" id="2" />
-				</ul>
-			</fieldset>
-
+			<TaskList />
 			<Controls />
 
 			<p class="instruction">Drag and drop to reorder list</p>
@@ -77,9 +69,7 @@
 	}
 
 	.wrapper,
-	.main,
-	.tasks-list-wrapper,
-	.tasks-list {
+	.main {
 		display: grid;
 	}
 
@@ -103,15 +93,6 @@
 		text-transform: uppercase;
 		color: var(--color-header);
 		letter-spacing: clamp(0.5rem, 2.13vw, 1.43rem);
-	}
-
-	.tasks-list-wrapper {
-		border: none;
-	}
-
-	.tasks-list {
-		border-radius: 0.25rem 0.25rem 0 0;
-		overflow: hidden;
 	}
 
 	.instruction {
