@@ -4,6 +4,12 @@
 	$: activeTasksLength = $TasksStore.items.filter(
 		item => !item.completed
 	).length
+
+	$: filterByLabelClass = (id: string) => {
+		return `filter-by__label ${
+			$FilterBy === id ? "filter-by__label--active" : ""
+		}`
+	}
 </script>
 
 <div class="controls">
@@ -18,7 +24,7 @@
 	<fieldset class="filter-by">
 		<legend class="sr-only">Filter items</legend>
 
-		<label for="all" class="filter-by__label"> All </label>
+		<label for="all" class={filterByLabelClass("all")}> All </label>
 
 		<input
 			type="radio"
@@ -27,7 +33,9 @@
 			value="all"
 			bind:group={$FilterBy} />
 
-		<label for="active" class="filter-by__label"> Active </label>
+		<label for="active" class={filterByLabelClass("active")}>
+			Active
+		</label>
 
 		<input
 			type="radio"
@@ -36,7 +44,9 @@
 			value="active"
 			bind:group={$FilterBy} />
 
-		<label for="completed" class="filter-by__label"> Completed </label>
+		<label for="completed" class={filterByLabelClass("completed")}>
+			Completed
+		</label>
 
 		<input
 			type="radio"
@@ -47,7 +57,9 @@
 	</fieldset>
 
 	<div class="controls__clear-completed">
-		<button class="button"> Clear Completed </button>
+		<button class="button" on:click={() => TasksStore.clearCompleted()}>
+			Clear Completed
+		</button>
 	</div>
 </div>
 
@@ -115,12 +127,17 @@
 
 	/* Active states */
 
-	.filter-by__label--active {
+	.filter-by__label:focus {
+		color: var(--color-main-contrast-hover);
+	}
+
+	/* Additional class name due to a specificity collision */
+
+	.filter-by__label.filter-by__label--active {
 		color: var(--color-active);
 	}
 
 	.filter-by__label:hover,
-	.filter-by__label:focus,
 	.button:hover,
 	.button:focus {
 		color: var(--color-main-contrast-hover);

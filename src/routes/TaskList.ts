@@ -36,6 +36,8 @@ const createArrayStore = (items: Item[]) => {
 		})
 	}
 
+	// Such a small change requires updating the entire store
+
 	const toggleCompleted = (id: string, completed: boolean) => {
 		update(store => {
 			let itemsUpdated = store.items.map(item => {
@@ -56,9 +58,18 @@ const createArrayStore = (items: Item[]) => {
 
 	const removeItem = (id: string) => {
 		update(store => {
-			let itemsUpdated = store.items.filter((item: Item) => item.id !== id)
+			let itemsUpdated = store.items.filter(item => item.id !== id)
 
 			return { ...store, items: itemsUpdated }
+		})
+	}
+
+	const clearCompleted = () => {
+		update(store => {
+			return {
+				...store,
+				items: store.items.filter(item => !item.completed)
+			}
 		})
 	}
 
@@ -69,6 +80,7 @@ const createArrayStore = (items: Item[]) => {
 		addItem,
 		toggleCompleted,
 		removeItem,
+		clearCompleted
 	}
 }
 
