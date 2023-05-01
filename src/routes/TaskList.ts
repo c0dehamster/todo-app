@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable, derived } from "svelte/store";
 import {v4 as uuidv4} from "uuid"
 import type { Writable } from "svelte/store";
 
@@ -52,3 +52,4 @@ const createArrayStore = (items: Item[]) => {
 }
 
 export const TasksStore = createArrayStore(items)
+export const FilterBy: Writable<"all" | "completed" | "active"> = writable("all")

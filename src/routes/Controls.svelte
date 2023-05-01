@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TasksStore } from "./TaskList"
+	import { TasksStore, FilterBy } from "./TaskList"
 
 	$: taskListLength = $TasksStore.items.length
 </script>
@@ -16,17 +16,32 @@
 	<fieldset class="filter-by">
 		<legend class="sr-only">Filter items</legend>
 
-		<label for="" class="filter-by__label"> All </label>
+		<label for="all" class="filter-by__label"> All </label>
 
-		<input type="radio" class="hidden" />
+		<input
+			type="radio"
+			class="hidden"
+			id="all"
+			value="all"
+			bind:group={$FilterBy} />
 
-		<label for="" class="filter-by__label"> Active </label>
+		<label for="active" class="filter-by__label"> Active </label>
 
-		<input type="radio" class="hidden" />
+		<input
+			type="radio"
+			class="hidden"
+			id="active"
+			value="active"
+			bind:group={$FilterBy} />
 
-		<label for="" class="filter-by__label"> Completed </label>
+		<label for="completed" class="filter-by__label"> Completed </label>
 
-		<input type="radio" class="hidden" />
+		<input
+			type="radio"
+			class="hidden"
+			id="completed"
+			value="completed"
+			bind:group={$FilterBy} />
 	</fieldset>
 
 	<div class="controls__clear-completed">
