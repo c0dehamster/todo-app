@@ -53,3 +53,16 @@ const createArrayStore = (items: Item[]) => {
 
 export const TasksStore = createArrayStore(items)
 export const FilterBy: Writable<"all" | "completed" | "active"> = writable("all")
+
+export const TasksFiltered = derived([TasksStore, FilterBy], ([$TasksStore, $FilterBy]) => {
+	switch ($FilterBy) {
+		case "all":
+			return $TasksStore.items
+			
+		case "completed":
+			return $TasksStore.items.filter(item => item.completed)
+
+		case "active":
+			return $TasksStore.items.filter(item => !item.completed)
+	}
+})

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TasksStore } from "./TaskList"
+	import { TasksStore, TasksFiltered } from "./TaskList"
 
 	import Task from "./Task.svelte"
 
@@ -10,8 +10,8 @@
 	<legend class="sr-only">List of tasks</legend>
 
 	<ul class="tasks-list">
-		{#if $TasksStore.items.length > 0}
-			{#each $TasksStore.items as task}
+		{#if $TasksFiltered.length > 0}
+			{#each $TasksFiltered as task}
 				<Task {...task} on:delete={onDelete} />
 			{/each}
 		{/if}
