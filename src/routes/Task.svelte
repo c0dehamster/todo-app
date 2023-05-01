@@ -5,9 +5,13 @@
 	export let description: string
 	export let completed = false
 
-	const dispatch = createEventDispatcher<{ delete: string }>()
+	const dispatch = createEventDispatcher()
 
 	const onDelete = () => dispatch("delete", id)
+
+	$: {
+		dispatch("toggleCompleted", { id, completed })
+	}
 
 	$: taskDescriptionClass = `task__description ${
 		completed ? "task__description--completed" : ""

@@ -36,6 +36,24 @@ const createArrayStore = (items: Item[]) => {
 		})
 	}
 
+	const toggleCompleted = (id: string, completed: boolean) => {
+		update(store => {
+			let itemsUpdated = store.items.map(item => {
+				if (item.id !== id) return item
+
+				return {
+					...item,
+					completed
+				}
+			})
+
+			return {
+				...store,
+				items: itemsUpdated
+			}
+		})
+	}	
+
 	const removeItem = (id: string) => {
 		update(store => {
 			let itemsUpdated = store.items.filter((item: Item) => item.id !== id)
@@ -44,9 +62,12 @@ const createArrayStore = (items: Item[]) => {
 		})
 	}
 
+
+
 	return {
 		subscribe,
 		addItem,
+		toggleCompleted,
 		removeItem,
 	}
 }
