@@ -65,8 +65,6 @@
 
 <style>
 	.controls {
-		margin-block-end: 2.25rem;
-
 		display: grid;
 		grid-template-areas: "items-left filter-by button-clear";
 		align-items: center;
