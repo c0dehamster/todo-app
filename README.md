@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./src//lib/images/screenshot.png)
+![](./src/lib/images/screenshot.png)
 
 ### Links
 
@@ -55,13 +55,13 @@ Users should be able to:
 
 ### What I learned
 
-To complete this project, I learned about derived stores which came handy for displaying filtered lists of todos. I also attempted the bonus challenge to make the list sortable and got approximately halfway through. I learned about svelte-dnd-action library which seems to cover most use cases for drag-and-drop components. I expect it to be useful in later projects.
+To complete this project, I learned about derived stores which were useful for displaying filtered lists of todos. I also attempted the bonus challenge to make the list sortable and got approximately halfway through. I learned about svelte-dnd-action library which seems to cover most use cases for drag-and-drop components. I expect it to be useful in later projects.
 
-Everything else in the challenge was mostly familiar to me. A lot of code is actually re-used from my orevious projects with little to no alterations.
+Everything else in the challenge was mostly familiar to me. A lot of code is actually re-used from my previous projects with little to no alterations.
 
 ### Continued development
 
-I cannot say I am satisfied with my result. While saving re-ordered todos and filtering tasks based on their completeness work by themselves, I haven't found a way to use them together. The challenge does not specify how the full list should behave when a filtered sub-list is re-ordered and I couldn't figure it out on my own.
+I cannot say I am fully satisfied with my result. While saving reordered todos and filtering tasks based on their completeness worked by themselves, I haven't found a way to use them together. The challenge does not specify how the full list should change when a filtered sub-list is reordered and I couldn't figure it out on my own.
 
 ### Useful resources
 
