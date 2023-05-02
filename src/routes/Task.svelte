@@ -4,6 +4,7 @@
 	export let id: string
 	export let description: string
 	export let completed = false
+	export let isDndShadowItem = false
 
 	const dispatch = createEventDispatcher()
 

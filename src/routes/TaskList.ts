@@ -77,6 +77,7 @@ const createArrayStore = (items: Item[]) => {
 
 
 	return {
+		set,
 		subscribe,
 		addItem,
 		toggleCompleted,
