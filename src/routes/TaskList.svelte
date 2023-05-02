@@ -44,15 +44,9 @@
 </fieldset>
 
 <style>
-	.tasks-list-wrapper {
-		display: grid;
-		border: none;
-	}
-
+	.tasks-list-wrapper,
 	.tasks-list {
 		display: grid;
-
-		border-radius: 0.25rem 0.25rem 0 0;
-		overflow: hidden;
+		border: none;
 	}
 </style>

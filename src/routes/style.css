@@ -149,10 +149,6 @@ ul {
 
 /* Utilities */
 
-.card {
-	background-color: var(--color-background-card);
-}
-
 .button {
 	padding: 0px;
 

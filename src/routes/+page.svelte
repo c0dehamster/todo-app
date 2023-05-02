@@ -40,8 +40,11 @@
 
 		<main class="main">
 			<Form />
-			<TaskList />
-			<Controls />
+
+			<div class="task-list-wrapper">
+				<TaskList />
+				<Controls />
+			</div>
 
 			<p class="instruction">Drag and drop to reorder list</p>
 		</main>
@@ -50,7 +53,7 @@
 
 <style>
 	.app {
-		height: 100vh;
+		min-height: 100vh;
 
 		display: flex;
 		flex-direction: column;
@@ -92,6 +95,11 @@
 		text-transform: uppercase;
 		color: var(--color-header);
 		letter-spacing: clamp(0.5rem, 2.13vw, 1.43rem);
+	}
+
+	.task-list-wrapper {
+		border-radius: 0.25rem;
+		overflow: hidden;
 	}
 
 	.instruction {

@@ -30,7 +30,10 @@
 		class="form__input"
 		name="taskDescription"
 		placeholder="Create a new todo..."
-		bind:value={newTaskDescription} />
+		bind:value={newTaskDescription}
+		on:keydown={e => {
+			if (e.key === "Enter") onClick() // Same here
+		}} />
 </from>
 
 <style>
@@ -57,7 +60,7 @@
 		background-color: transparent;
 		color: var(--color-main-contrast);
 
-		/* I did non know it is possible to style the caret at all */
+		/* I did not know it is possible to style the caret at all */
 		caret-color: var(--color-primary-400);
 
 		font-size: var(--font-size-100);
