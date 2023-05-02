@@ -1,9 +1,13 @@
 <script lang="ts">
+	import { flip } from "svelte/animate"
+
 	import { dndzone } from "svelte-dnd-action"
 	import { TasksStore, TasksFiltered } from "./TaskList"
 
 	import Task from "./Task.svelte"
 	import type { ListItem } from "./TaskList"
+
+	const flipDurationMs = 200
 
 	const handleSort = (e: CustomEvent<DndEvent<ListItem>>) =>
 		($TasksStore.items = e.detail.items)
@@ -24,10 +28,14 @@
 			on:consider={handleSort}
 			on:finalize={handleSort}>
 			{#each $TasksStore.items as task (task.id)}
-				<Task
-					{...task}
-					on:delete={onDelete}
-					on:toggleCompleted={onToggleCompleted} />
+				<div
+					class="dnd-item"
+					animate:flip={{ duration: flipDurationMs }}>
+					<Task
+						{...task}
+						on:delete={onDelete}
+						on:toggleCompleted={onToggleCompleted} />
+				</div>
 			{/each}
 		</ul>
 	{/if}
