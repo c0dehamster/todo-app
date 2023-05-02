@@ -9,7 +9,6 @@
 	import Form from "./Form.svelte"
 	import TaskList from "./TaskList.svelte"
 	import Controls from "./Controls.svelte"
-	import { dndzone } from "svelte-dnd-action"
 
 	let lightTheme = false
 
@@ -23,10 +22,7 @@
 	<title>Frontend Mentor | Todo app</title>
 </svelte:head>
 
-<!-- The instruction requires to make the scroll container 
-a dndzone. Not sure why it is necessary -->
-
-<svelte:body use:dndzone={{ items: [], dropFromOthersDisabled: true }} />
+<svelte:body />
 
 <div
 	class={appClass}
