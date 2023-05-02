@@ -14,7 +14,6 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
     -   [Continued development](#continued-development)
     -   [Useful resources](#useful-resources)
 -   [Author](#author)
--   [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -34,20 +33,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./src//lib/images/screenshot.png)
 
 ### Links
 
--   Solution URL: [Add solution URL here](https://your-solution-url.com)
--   Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+-   [Solution URL](https://github.com/c0dehamster/todo-app)
+-   [Live Site URL](https://todo-app-two-iota.vercel.app/)
 
 ## My process
 
@@ -64,18 +55,22 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
+To complete this project, I learned about derived stores which came handy for displaying filtered lists of todos. I also attempted the bonus challenge to make the list sortable and got approximately halfway through. I learned about svelte-dnd-action library which seems to cover most use cases for drag-and-drop components. I expect it to be useful in later projects.
+
+Everything else in the challenge was mostly familiar to me. A lot of code is actually re-used from my orevious projects with little to no alterations.
+
 ### Continued development
+
+I cannot say I am satisfied with my result. While saving re-ordered todos and filtering tasks based on their completeness work by themselves, I haven't found a way to use them together. The challenge does not specify how the full list should behave when a filtered sub-list is re-ordered and I couldn't figure it out on my own.
 
 ### Useful resources
 
--   [Drag and drop with Svelte using svelte-dnd-action](https://dev.to/isaachagoel/drag-and-drop-with-svelte-using-svelte-dnd-action-4554) - An article about making a drag-and-drop list with svelte-dnd-action writtem by the author of the library
+-   [Svelte docs about derived stores](https://svelte.dev/docs#run-time-svelte-store-derived)
+
+-   [Drag and drop with Svelte using svelte-dnd-action](https://dev.to/isaachagoel/drag-and-drop-with-svelte-using-svelte-dnd-action-4554) - An article about making a drag-and-drop list with svelte-dnd-action written by the author of the library
 
 -   [SvelteKit Drag And Drop List With svelte-dnd-action](https://www.youtube.com/watch?v=sFX525V3dMs) - This video was useful for figuring out how to use the library with typescript
 
 ## Author
 
 -   Frontend Mentor - [@twDevNoob](https://www.frontendmentor.io/profile/twDevNoob)
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
