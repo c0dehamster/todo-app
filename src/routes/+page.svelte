@@ -22,8 +22,6 @@
 	<title>Frontend Mentor | Todo app</title>
 </svelte:head>
 
-<svelte:body />
-
 <div
 	class={appClass}
 	style="--background-mobile-dark: url({backgroundMobileDark});
@@ -97,7 +95,7 @@
 		font-size: var(--font-size-heading-responsive);
 		text-transform: uppercase;
 		color: var(--color-header);
-		letter-spacing: clamp(0.5rem, 2.13vw, 1.43rem);
+		letter-spacing: clamp(0.5rem, 2vw, 1.4rem);
 	}
 
 	.task-list-wrapper {
@@ -137,7 +135,7 @@
 		}
 
 		.wrapper {
-			padding-block-start: 4.5rem;
+			padding-block-start: 5rem;
 		}
 
 		.instruction {
