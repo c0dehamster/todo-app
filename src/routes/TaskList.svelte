@@ -3,8 +3,10 @@
 	import { TasksStore, TasksFiltered } from "./TaskList"
 
 	import Task from "./Task.svelte"
+	import type { ListItem } from "./TaskList"
 
-	const handleSort = (e: any) => ($TasksStore.items = e.detail.items)
+	const handleSort = (e: CustomEvent<DndEvent<ListItem>>) =>
+		($TasksStore.items = e.detail.items)
 
 	const onToggleCompleted = (
 		e: CustomEvent<{ id: string; completed: boolean }>

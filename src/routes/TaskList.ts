@@ -3,13 +3,13 @@ import { writable, derived } from "svelte/store";
 import {v4 as uuidv4} from "uuid"
 import type { Writable } from "svelte/store";
 
-interface Item {
+export interface ListItem {
     id: string
     description: string
     completed: boolean
 }
 
-let items: Item[] = []
+let items: ListItem[] = []
 
 if (browser) {
 	let tasks = localStorage.getItem("tasks")
@@ -17,8 +17,8 @@ if (browser) {
 	if (tasks && tasks !== "undefined") items = JSON.parse(tasks)
 }
 
-const createArrayStore = (items: Item[]) => {
-	const { set, update, subscribe }: Writable<{items: Item[]}> = writable({
+const createArrayStore = (items: ListItem[]) => {
+	const { set, update, subscribe }: Writable<{items: ListItem[]}> = writable({
 		items
 	})
 
