@@ -9,8 +9,10 @@
 
 	const flipDurationMs = 200
 
+	$: items = $TasksFiltered
+
 	const handleSort = (e: CustomEvent<DndEvent<ListItem>>) =>
-		($TasksStore.items = e.detail.items)
+		(items = e.detail.items)
 
 	const onToggleCompleted = (
 		e: CustomEvent<{ id: string; completed: boolean }>
@@ -24,10 +26,10 @@
 	{#if $TasksFiltered.length > 0}
 		<ul
 			class="tasks-list"
-			use:dndzone={{ items: $TasksStore.items }}
+			use:dndzone={{ items }}
 			on:consider={handleSort}
 			on:finalize={handleSort}>
-			{#each $TasksStore.items as task (task.id)}
+			{#each items as task (task.id)}
 				<div
 					class="dnd-item"
 					animate:flip={{ duration: flipDurationMs }}>
