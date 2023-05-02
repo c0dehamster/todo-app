@@ -9,6 +9,7 @@
 	import Form from "./Form.svelte"
 	import TaskList from "./TaskList.svelte"
 	import Controls from "./Controls.svelte"
+	import { dndzone } from "svelte-dnd-action"
 
 	let lightTheme = false
 
@@ -22,12 +23,18 @@
 	<title>Frontend Mentor | Todo app</title>
 </svelte:head>
 
+<!-- The instruction requires to make the scroll container 
+a dndzone. Not sure why it is necessary -->
+
+<svelte:body use:dndzone={{ items: [], dropFromOthersDisabled: true }} />
+
 <div
 	class={appClass}
 	style="--background-mobile-dark: url({backgroundMobileDark});
 --background-mobile-light: url({backgroundMobileLight});
 --background-desktop-dark: url({backgroundDesktopDark});
---background-desktop-light: url({backgroundDesktopLight})">
+--background-desktop-light: url({backgroundDesktopLight})"
+	on:touchmove|preventDefault>
 	<div class="wrapper">
 		<header class="header">
 			<h1 class="heading">Todo</h1>
@@ -98,8 +105,22 @@
 	}
 
 	.task-list-wrapper {
+		position: relative;
+		z-index: 10;
+		margin-block-end: 2.25rem;
+
 		border-radius: 0.25rem;
 		overflow: hidden;
+		box-shadow: 0rem 0rem 1rem 1rem var(--color-shadow);
+	}
+
+	.task-list-wrapper::before {
+		z-index: -1;
+		content: "";
+		position: absolute;
+		inset: 0;
+
+		background-color: var(--color-shadow);
 	}
 
 	.instruction {
