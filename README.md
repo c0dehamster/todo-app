@@ -57,6 +57,8 @@ Users should be able to:
 
 To complete this project, I learned about derived stores which were useful for displaying filtered lists of todos. I also attempted the bonus challenge to make the list sortable and got approximately halfway through. I learned about svelte-dnd-action library which seems to cover most use cases for drag-and-drop components. I expect it to be useful in later projects.
 
+I used UUID package to generate IDs for tasks. This insures IDs are unique but is not really necessary as they don't have to be cryptographically secure.
+
 Everything else in the challenge was mostly familiar to me. A lot of code is actually re-used from my previous projects with little to no alterations.
 
 ### Continued development
